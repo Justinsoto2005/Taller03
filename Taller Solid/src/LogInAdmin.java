@@ -1,17 +1,17 @@
-public class LogInAdmin extends LogIn {
-    private boolean userIsAdmin;
-    @Override
-    public void log (User user) {
-        this.userIsAdmin = verifyIfTheUserIsAdmin(user);
-        if(!userIsAdmin){
-            return;
+public class LogInAdmin implements Authenticator {
+    private LogIn logIn = new LogIn();
+
+    public void log(User user) {
+        if (verifyIfTheUserIsAdmin(user)) {
+            System.out.println("Has access to the website in admin mode");
+            logIn.log(user); // reutiliza la lógica de inserción
+        } else {
+            System.out.println("Access denied: not an admin");
         }
-        System.out.println("Has access to the website in admin mode");
-        // Logic
     }
-    private boolean verifyIfTheUserIsAdmin(User user){
-        // Do something
+
+    private boolean verifyIfTheUserIsAdmin(User user) {
+        // Logic
         return true;
     }
 }
-
