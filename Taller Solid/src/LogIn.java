@@ -1,4 +1,4 @@
-public class LogIn {
+public class LogIn{
     public void log (User user) {
         System.out.println("Has access to the website");
         insertUserInDatabase(user);
@@ -8,4 +8,3 @@ public class LogIn {
         // Insert user in database
     }
 }
-
